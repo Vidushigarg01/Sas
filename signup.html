@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+        * {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+   
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	background-color: #555555;
+}
+
+h1 {
+	margin-top: 0;
+}
+
+form {
+	background-color: #FFFFFF;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+label {
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+input {
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	background-color: #EEEEEE;
+	width: 100%;
+}
+
+button {
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	background-color: #4285F4;
+	color: #FFFFFF;
+	font-size: 16px;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+button[type="submit"] {
+	background-color: #0F9D58;
+}
+
+#message-container {
+	margin-top: 20px;
+	padding: 10px;
+	border-radius: 5px;
+	
+	color: #333333;
+	font-size: 16px;
+	text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+	.container {
+		height: auto;
+	}
+	#signup-form {
+		width: 100%;
+		border-radius: 0;
+		box-shadow: none;
+	}
+}
+.icon{
+        padding-left: 3px !important; 
+        padding-top: 4px !important; 
+    }
+    .icon a{
+      text-decoration: none;
+      color: black;
+	}
+
+    </style>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+	<div class="icon">
+        <a href="index.html">  <i class="fa-sharp fa-solid fa-house fa-bounce ">Home</i></a>
+</div>
+	<div class="container">
+		<h1>Sign Up</h1>
+		<form id="signup-form">
+			<label for="name">Name</label>
+			<input type="text" id="name" name="name" required>
+
+			<label for="email">Email</label>
+			<input type="email" id="email" name="email" required>
+
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" required>
+
+			<label for="confirm-password">Confirm Password</label>
+			<input type="password" id="confirm-password" name="confirm-password" required>
+
+			<label for="phone">Phone Number</label>
+			<input type="tel" id="phone" name="phone" required>
+
+			<div>
+                <label for="otp">Enter OTP:</label>
+                <input type="text" id="otp" name="otp" maxlength="6" required>
+                <button  onclick="generateOTP()" id="myButton">Generate OTP</button>
+              </div>
+              
+
+			<button type="submit"  id="submitBtn">Sign Up</button>
+		</form>
+		<div id="message-container"></div>
+	</div>
+<script>
+   function generateOTP() {
+  // Generate a random 6-digit number
+  const otp = Math.floor(Math.random() * 1000000);
+  
+  // Display the OTP in the input field
+  document.getElementById("otp").value = otp;
+}
+//prevent refresh of page
+      document.getElementById("myButton").addEventListener("click", function(event){
+        event.preventDefault();
+      });
+//submit of signup
+
+const submitBtn = document.getElementById('submitBtn');
+
+  submitBtn.addEventListener('click', function(event) {
+    
+    alert('Signed Up successfully!');
+  });
+
+    </script>
+  </body>
+</html>
+
+</script>
+	
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        #section{
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url(images/bb.jpg);
+            background-size: cover;
+            background-position: center;
+            
+            
+        }
+        .home{
+            position: relative;
+            max-width: 500px;
+            padding: 150px;
+            text-align: center;
+            background-color: rgba(0,0,0,.7);
+        }
+        .home h2{
+            color: yellow;
+            font-size: 40px;
+        }
+        .home p{
+            display: inline-block;
+            color: aliceblue;
+            font-size: 1vw;
+
+        }
+        .home a{
+            display: inline-block;
+            background-color: #262626;
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 20px;
+            margin: 20px;
+        }
+        .popup{
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(252, 240, 238, 0.7);
+            visibility: hidden;
+            opacity: 0;
+            z-index: 1;
+        }
+        .active{
+           visibility: visible;
+           opacity: 1;
+
+        }
+        .popup video{
+            position: relative;
+            max-width: 900px;
+            outline: none;
+            box-shadow: 0 0 10px 10px rgba(14, 13, 13, 0.4);
+        }
+        .popup .close{
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            max-width: 35px;
+            cursor: pointer;
+            color: #fff;
+filter: invert(1);
+        }
+        .icon{
+        padding-left: 3px !important; 
+        padding-top: 4px !important; 
+    }
+    .icon a{
+      text-decoration: none;
+      color: black;
+    }
+    .main {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.gallery {
+	margin-top: 20px;
+}
+
+.gallery h2 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.image-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.image-container img {
+	width: 300px;
+	height: 300px;
+	object-fit: cover;
+	margin: 10px;
+	border: 5px solid #ccc;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 50px;
+}
+
+.modal-content {
+	display: block;
+	margin: auto;
+	max-width: 80%;
+	max-height: 80%;
+}
+
+.close {
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	font-size: 30px;
+	font-weight: bold;
+	color: #fff;
+	cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+	color: #bbb;
+	text-decoration: none;
+	cursor: pointer;
+}
+.reveal{
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 1s all ease;
+}
+.reveal.active{
+  transform: translateY(0);
+  opacity: 1;
+}
+footer {
+background-color: #333;
+color: #fff;
+padding: 10px;
+text-align: center;
+}
+
+footer p {
+margin: 0;
+}
+        
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="icon">
+        <a href="index.html">  <i class="fa-sharp fa-solid fa-house fa-bounce ">Home</i></a>
+</div>
+    <section id="section">
+        
+        <div class="home">
+           
+            <h2>Step and Style</h2>
+           
+               <p> This gallery is a collection of some of the most stunning and captivating dance performances from our SAS academy. From classical ballet to contemporary hip-hop, each dance tells its own unique story and showcases the incredible talent and skill of its performers.</p>
+
+               <p> So sit back, relax, and allow yourself to be transported into the world of dance. Whether you're here to admire the beauty of the human form or to be inspired by the creativity and innovation of modern dance, there's something for everyone in this gallery. So take a look around and enjoy the show!</p>
+        <a href="#" class="click">Watch Video</a>
+            </div>
+         <div class="popup">
+<video src="vd.mp4" controls="true"></video>
+<i class="fa-solid fa-xmark close" style="color:white"></i></div>
+         </div>   
+    </section>
+    <main>
+		<section class="gallery reveal">
+			<h2>Gallery</h2>
+			<div class="image-container reveal">
+				<img src="images/a1.jpg" alt="Dance Image 1" onclick="openModal('images/a1.jpg')">
+				<img src="images/a5.jpg" alt="Dance Image 2" onclick="openModal('images/a5.jpg')">
+				<img src="images/a2.jpg" alt="Dance Image 3" onclick="openModal('images/a2.jpg')">
+				<img src="images/a4.jpg" alt="Dance Image 4" onclick="openModal('images/a4.jpg')">
+				<img src="images/a3.png" alt="Dance Image 5" onclick="openModal('images/a3.png')">
+				<img src="images/a6.jpg" alt="Dance Image 6" onclick="openModal('images/a6.jpg')">
+                <img src="images/a7.jpg" alt="Dance Image 4" onclick="openModal('images/a7.jpg')">
+				<img src="images/a8.jpg" alt="Dance Image 5" onclick="openModal('images/a8.png')">
+				<img src="images/a9.jpg" alt="Dance Image 6" onclick="openModal('images/a9.jpg')">
+			</div>
+			<div id="modal" class="modal">
+				<span class="close" onclick="closeModal()">&times;</span>
+				<img class="modal-content" id="modal-image">
+			</div>
+		</section>
+	</main>
+	<footer>
+	<center>	<p> Copyright &copy;2023 by Step And Style. All Rights Reserved. </p></center>
+	</footer>
+	<script src="script.js"></script>
+    
+    <script>
+$(document).ready(function(){
+$('.click').click(function(){
+$('.popup').addClass('active');
+});
+$('.close').click(function(){
+    $('.popup').removeClass('active');
+});
+});
+
+
+//images
+function openModal(imageUrl) {
+  var modal = document.getElementById("modal");
+  var modalImage = document.getElementById("modal-image");
+  modal.style.display = "block";
+  modalImage.src = imageUrl;
+}
+
+function closeModal() {
+  var modal = document.getElementById("modal");
+  modal.style.display = "none";
+}
+
+window.onclick = function (event) {
+  var modal = document.getElementById("modal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
+
+    </script>
+</body>
+</html>
